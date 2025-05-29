@@ -1,0 +1,10 @@
+{
+  "name": "voraus-pioneer-dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": ["ms-python.python"]
+}

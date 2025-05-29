@@ -1,0 +1,7 @@
+# Konfigurationsdatei für JAKA Zu 7 RoboDK-Steuerung
+# Diese Parameter werden in program_runner.py verwendet
+
+robot_name: JAKA Zu7
+pick_target: PickTarget
+place_target: PlaceTarget
+sensor_interval: 3 # Sekunden zwischen virtuellen Sensorzyklen
