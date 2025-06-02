@@ -1,0 +1,4 @@
+Datei,Funktion
+config_helper.py,Konfiguration laden + validieren + Defaults setzen
+sensor_loop.py,Zentrale Konfigurationsnutzung aus config_helper
+README.md,Erklärung zur neuen Konfigurationsschicht

@@ -1,0 +1,21 @@
+jaka_base_project/
+├── robot_control.py         # zentrale Bewegungslogik über RoboDK API
+├── sensor_loop.py           # virtuelle Lichtschranke (periodisch)
+├── program_runner.py        # Hauptablauf (kombiniert Bewegung + Sensor)
+├── config.yaml              # einfache Parametrierung (Loop-Zeit, Toolname etc.)
+├── .devcontainer/           # bleibt wie bisher für Dev Umgebung
+└── README.md                # Hinweise für Setup & Erweiterung
+
+
+jaka-devkit/
+├── .devcontainer/             # Dev Container für VS Code
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── roboDK_project/           # .rdk-Datei mit JAKA Zu 7, Targets, TCP
+├── robot_control.py          # API-gesteuerte Bewegungen
+├── sensor_loop.py            # Timer-gesteuerter Trigger
+├── program_runner.py         # Haupt-Loop
+├── config.yaml               # Parametrierung
+├── README.md                 # Doku, Anleitungen
+├── requirements.txt          # Python-Abhängigkeiten
+└── LICENSE

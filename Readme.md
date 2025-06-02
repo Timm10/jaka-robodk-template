@@ -30,6 +30,7 @@ jaka-devkit/
 1. **Starte RoboDK (lokal)**
    - Lade das `.rdk`-Projekt aus `roboDK_project/`
    - Stelle sicher: Robotername = `JAKA`, Targets = `PickTarget`, `PlaceTarget`
+   - Aktiviere in RoboDK unter *Tools > Options > API*: ✔️ „Start RoboDK API when the program starts“
 
 2. **Starte VS Code Dev Container**
    ```bash
@@ -39,6 +40,34 @@ jaka-devkit/
 3. Die Konsole zeigt den Ablauf: Sensor erkennt Objekt → Pick → Place → Wiederholen (10x)
 
 ---
+
+python program_runner.py
+
+---
+
+## 🔧 Konfigurationsmanagement & Validierung
+
+Dieses Projekt nutzt `config.yaml` zur Steuerung von Betriebsparametern.  
+Damit daraus robuste, überprüfte Werte entstehen, wird `config_helper.py` verwendet:
+
+### Vorteile:
+- Setzt Standardwerte automatisch
+- Prüft auf Pflichtfelder
+- Kann später mit `pydantic` oder `cerberus` validiert werden
+
+### Beispielstruktur (`config.yaml`):
+
+```yaml
+robot_name: JAKA Zu7
+pick_target: PickTarget
+place_target: PlaceTarget
+use_random_input: true
+sensor_intervals: [2, 3, 1.5, 4, 2.5]
+
+
+
+
+
 
 ## ⚙️ `config.yaml` – Beispiel
 
@@ -71,4 +100,79 @@ Später: Anpassbar für andere JAKA-Typen, Tools, Bewegungsarten.
 
 ---
 
+## 📦 GitHub-Veröffentlichung
+
+Um dieses Projekt als GitHub-Repository zu veröffentlichen:
+
+1. Initialisiere Git im lokalen Projektordner (nur beim ersten Mal):
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit for JAKA Zu 7 + RoboDK"
+   ```
+
+2. Konfiguriere deine GitHub-Identität (falls nötig):
+   ```bash
+   git config --global user.name "Dein Name"
+   git config --global user.email "deine@email.de"
+   ```
+
+3. Erstelle ein neues Repository auf [https://github.com/new](https://github.com/new)
+   - Kein README anlegen (ist lokal schon enthalten)
+   - Repository-Link kopieren
+
+4. Verbinde dein lokales Repo mit GitHub:
+   ```bash
+   git remote add origin https://github.com/deinname/jaka-robodk-template.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+Optional kannst du das Repo in GitHub unter **Settings** als „Template Repository“ markieren.
+
+---
+
 📍 Fragen, Anpassungen oder Feedback? Einfach melden – wir bauen dein Robotics-Toolkit gemeinsam aus.
+
+neuer Code 01.06.25:
+
+python program_runner.py
+
+---
+
+## 🔧 Konfigurationsmanagement & Validierung
+
+Dieses Projekt nutzt `config.yaml` zur Steuerung von Betriebsparametern.  
+Damit daraus robuste, überprüfte Werte entstehen, wird `config_helper.py` verwendet:
+
+### Vorteile:
+- Setzt Standardwerte automatisch
+- Prüft auf Pflichtfelder
+- Kann später mit `pydantic` oder `cerberus` validiert werden
+
+### Beispielstruktur (`config.yaml`):
+
+```yaml
+robot_name: JAKA Zu7
+pick_target: PickTarget
+place_target: PlaceTarget
+use_random_input: true
+sensor_intervals: [2, 3, 1.5, 4, 2.5]
+
+---
+
+## 🧪 Simulation digitaler Ein-/Ausgänge (I/O)
+
+Die Datei `io_simulation.py` enthält eine simulierte Lichtschranke mit zufälligem Triggersignal.
+
+### Beispielverwendung:
+
+```python
+from io_simulation import VirtualLightBarrier
+
+ls1 = VirtualLightBarrier(name="Lichtschranke 1")
+if ls1.wait_until_triggered():
+    print("Objekt erkannt, weiter mit Pick.")
+
+
+
